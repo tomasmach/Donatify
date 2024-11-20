@@ -1,0 +1,7 @@
+<h1>{{ donation_goal.id|default:"Create" }} Donation Goal</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'donation_goal_list' %}">Cancel</a>

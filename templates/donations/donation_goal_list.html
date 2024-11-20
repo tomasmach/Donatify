@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Donation Goals{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Donation Goals</h1>
+    <table class="table table-striped" id="goal-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Target Amount</th>
+                <th>Collected Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data se načte pomocí AJAX -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function fetchGoals() {
+        // Načte data z backendu
+        fetch('/donation-goals/', {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest' // Identifikace AJAX požadavku
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector('#goal-table tbody');
+            tableBody.innerHTML = ''; // Smaže staré řádky
+
+            // Pro každý donation goal vytvoří nový řádek
+            data.forEach(goal => {
+                const status = goal.completed ? 'Completed' : 'In Progress';
+                const row = `
+                    <tr>
+                        <td>${goal.title}</td>
+                        <td>${goal.description}</td>
+                        <td>${goal.target_amount}</td>
+                        <td>${goal.collected_amount}</td>
+                        <td>${status}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch(error => console.error('Error fetching donation goals:', error));
+    }
+
+    // Aktualizace každých 5 sekund
+    setInterval(fetchGoals, 5000);
+    fetchGoals(); // První načtení hned při otevření stránky
+</script>
+{% endblock %}

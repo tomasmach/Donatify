@@ -1,0 +1,9 @@
+<h1>{{ donation_goal.title }}</h1>
+<p>{{ donation_goal.description }}</p>
+<p>Target: {{ donation_goal.target_amount }}</p>
+<p>Collected: {{ donation_goal.collected_amount }}</p>
+<p>Created: {{ donation_goal.created_at }}</p>
+<p>Completed: {{ donation_goal.completed }}</p>
+<a href="{% url 'donation_goal_update' donation_goal.pk %}">Edit</a>
+<a href="{% url 'donation_goal_delete' donation_goal.pk %}">Delete</a>
+<a href="{% url 'donation_goal_list' %}">Back to list</a>

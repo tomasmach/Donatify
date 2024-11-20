@@ -47,7 +47,7 @@ Donatify aims to provide streamers with a tool that not only tracks donation goa
 
 ## 🚀 Roadmap
 
-### Version 0.1 (Target: End of November 2024)
+### Version 0.1 (Target: End of December 2024)
 - **🔧 Backend Setup**: Basic API for donation goals, user authentication, and initial data models.
 - **🖥 Frontend Interface**: Simple UI for setting and tracking donation goals.
 - **📡 Real-Time Updates**: Basic real-time tracking for donation goals.
@@ -74,7 +74,7 @@ Donatify aims to provide streamers with a tool that not only tracks donation goa
 
 ## 🏆 Goals
 
-1. **🚀 Launch a Minimal Viable Product (MVP)** by the end of November 2024 with core functionality.
+1. **🚀 Launch a Minimal Viable Product (MVP)** by the end of December 2024 with core functionality.
 2. **💬 Gather User Feedback** from early adopters to refine and improve features.
 3. **🔗 Expand Platform Integrations** in future versions to support a broader range of streaming platforms and tools.
 
